@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Android</title>
+</head>
+<body>
+	<div>
+		{% for i in all_api %}
+			<h1>{{ i.location }}</h1>
+			<p><img src = "/media/{{ i.image }}" height="500" width="1000"></p>
+		{% endfor %}
+	</div>
+</body>
+</html>
