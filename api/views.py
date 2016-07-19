@@ -7,7 +7,10 @@ from api.models import api_north, api_south, api_east, api_west
 
 def android_api(request):
 	domain = "http://52.36.208.194:8000/media/"
-	all_api = api_model.objects.all()
+	l = request.GET.get('location', '')
+	all_api = api_model.objects.filter(
+		location__icontains=l
+	)
 	my_response = {}
 	my_array = []
 	for i in all_api:
