@@ -45,3 +45,6 @@ class api_west(models.Model):
 
 	def __str__(self):
 		return str(self.title)
+
+
+# Some comment
