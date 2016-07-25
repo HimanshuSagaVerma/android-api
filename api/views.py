@@ -116,17 +116,43 @@ def register(request):
 
 def register_api(request):
 	e = request.GET.get('Email','')
-	all_api = Register.objects.filter(
-		email__icontains = e
-	)
-	my_response = {}
-	my_array = []
-	for i in all_api:
-		single_api = {}
-		single_api['Email']=i.email
-		single_api['Password']=i.password
-		my_array.append(single_api)
 
-	my_response['details'] = my_array
-	my_response = json.dumps(my_response)
-	return HttpResponse(my_response)
+
+	# New code
+	email = request.GET.get('email', '')
+	password = request.GET.get('password', '')
+
+	user = Register.objects.filter(email=email, password=password)
+	my_response = {}
+	print 'user; ', user
+	if user:
+		user_detail = {
+			'user_found': True,
+			'email': user[0].email,
+			'username': user[0].username,
+		}
+	else:
+		user_detail = {
+			'user_found': False,
+			'email': '',
+			'username': '',
+		}
+	my_response['user_detail'] = user_detail
+
+	return HttpResponse(json.dumps(my_response))
+
+
+	# all_api = Register.objects.filter(
+	# 	email__icontains = e
+	# )
+	# my_response = {}
+	# my_array = []
+	# for i in all_api:
+	# 	single_api = {}
+	# 	single_api['Email']=i.email
+	# 	single_api['Password']=i.password
+	# 	my_array.append(single_api)
+
+	# my_response['details'] = my_array
+	# my_response = json.dumps(my_response)
+	# return HttpResponse(my_response)
