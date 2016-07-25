@@ -26,6 +26,11 @@ def android_api(request):
 	my_response = json.dumps(my_response)
 	return HttpResponse(my_response)
 
+def index1(request):
+    file = "index1.html"
+    context = {}
+    return render(request, file, context)
+
 def home_page(request):
 	file_name = "home.html"
 	context = {}

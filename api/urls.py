@@ -4,6 +4,7 @@ from django.conf.urls import url
 urlpatterns = [
 	url('^register/$', views.register, name="register"),
 	url(r'^$', views.home_page),
+	url(r'^home/', views.index1),
 	url('^register-api/', views.register_api),
 	url(r'^android-api/', views.android_api),
 	url(r'^api-north/', views.api_north1),
