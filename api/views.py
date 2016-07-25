@@ -1,8 +1,10 @@
 import json
+from django.views.decorators.csrf import csrf_exempt
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from api.models import api_model
-from api.models import api_north, api_south, api_east, api_west
+from api.models import api_north, api_south, api_east, api_west, Register
 # Create your views here.
 
 def android_api(request):
@@ -89,6 +91,40 @@ def api_west1(request):
 		single_api['title'] = i.title
 		single_api['description'] = i.description
 		single_api['image'] = domain_north + str(i.image)
+		my_array.append(single_api)
+
+	my_response['details'] = my_array
+	my_response = json.dumps(my_response)
+	return HttpResponse(my_response)
+
+
+@csrf_exempt
+def register(request):
+	data = request.POST
+	username = data.get('username')
+	mobile = data.get('mobile')
+	email = data.get('email')
+	password = data.get('password')
+
+	Register.objects.create(
+		username = username,
+		mobile = mobile,
+		email = email,
+		password = password
+		)
+	return HttpResponse(request.POST)
+
+def register_api(request):
+	e = request.GET.get('Email','')
+	all_api = Register.objects.filter(
+		email__icontains = e
+	)
+	my_response = {}
+	my_array = []
+	for i in all_api:
+		single_api = {}
+		single_api['Email']=i.email
+		single_api['Password']=i.password
 		my_array.append(single_api)
 
 	my_response['details'] = my_array

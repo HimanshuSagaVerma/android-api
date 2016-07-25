@@ -1,6 +1,11 @@
 from django.contrib import admin
-from api.models import api_model, api_north, api_south, api_east, api_west
+from api.models import api_model, api_north, api_south, api_east, api_west, Register
 # Register your models here.
+
+class RegisterAdmin(admin.ModelAdmin):
+	pass
+
+admin.site.register(Register, RegisterAdmin)
 
 class Api_Model(admin.ModelAdmin):
 	pass
