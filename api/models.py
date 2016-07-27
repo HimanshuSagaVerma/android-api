@@ -23,6 +23,7 @@ class api_model(models.Model):
 class api_north(models.Model):
 	title = models.CharField(max_length = 200, null = True)
 	image = models.ImageField(upload_to = 'north')
+	url = models.CharField(max_length = 2000, null = True)
 	description = models.TextField()
 
 	def __str__(self):
@@ -32,6 +33,7 @@ class api_north(models.Model):
 class api_south(models.Model):
 	title = models.CharField(max_length = 200, null = True)
 	image = models.ImageField(upload_to = 'south')
+	url = models.CharField(max_length = 2000, null = True)
 	description = models.TextField()
 
 	def __str__(self):
@@ -41,6 +43,7 @@ class api_south(models.Model):
 class api_east(models.Model):
 	title = models.CharField(max_length = 200, null = True)
 	image = models.ImageField(upload_to = 'east')
+	url = models.CharField(max_length = 2000, null = True)
 	description = models.TextField()
 
 	def __str__(self):
@@ -50,10 +53,49 @@ class api_east(models.Model):
 class api_west(models.Model):
 	title = models.CharField(max_length = 200, null = True)
 	image = models.ImageField(upload_to = 'west')
+	url = models.CharField(max_length = 2000, null = True)
 	description = models.TextField()
 
 	def __str__(self):
 		return str(self.title)
 
 
-# Some comment
+class api_a(models.Model):
+	title = models.CharField(max_length = 200, null = True)
+	image = models.ImageField(upload_to = 'a')
+	url = models.CharField(max_length = 2000, null = True)
+	description = models.TextField()
+
+	def __str__(self):
+		return str(self.title)
+
+
+class api_b(models.Model):
+	title = models.CharField(max_length = 200, null = True)
+	image = models.ImageField(upload_to = 'b')
+	url = models.CharField(max_length = 2000, null = True)
+	description = models.TextField()
+
+	def __str__(self):
+		return str(self.title)
+
+
+class api_c(models.Model):
+	title = models.CharField(max_length = 200, null = True)
+	image = models.ImageField(upload_to = 'c')
+	url = models.CharField(max_length = 2000, null = True)
+	description = models.TextField()
+
+	def __str__(self):
+		return str(self.title)
+
+
+class api_d(models.Model):
+	title = models.CharField(max_length = 200, null = True)
+	image = models.ImageField(upload_to = 'd')
+	url = models.CharField(max_length = 2000, null = True)
+	description = models.TextField()
+
+	def __str__(self):
+		return str(self.title)
+

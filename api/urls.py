@@ -11,4 +11,8 @@ urlpatterns = [
 	url(r'^api-south/', views.api_south1),
 	url(r'^api-east/', views.api_east1),
 	url(r'^api-west/', views.api_west1),
+	url(r'^api-a/', views.api_a1),
+	url(r'^api-b/', views.api_b1),
+	url(r'^api-c/', views.api_c1),
+	url(r'^api-d/', views.api_d1),
 ]
