@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from api.models import api_model
 from api.models import api_north, api_south, api_east, api_west, Register
+from api.models import api_a, api_b, api_c, api_d
 # Create your views here.
 
 def android_api(request):
@@ -48,6 +49,7 @@ def api_north1(request):
 		single_api['title'] = i.title
 		single_api['description'] = i.description
 		single_api['image'] = domain_north + str(i.image)
+		single_api['url'] = i.url
 		my_array.append(single_api)
 
 	my_response['details'] = my_array
@@ -64,6 +66,7 @@ def api_south1(request):
 		single_api['title'] = i.title
 		single_api['description'] = i.description
 		single_api['image'] = domain_north + str(i.image)
+		single_api['url'] = i.url
 		my_array.append(single_api)
 
 	my_response['details'] = my_array
@@ -80,6 +83,7 @@ def api_east1(request):
 		single_api['title'] = i.title
 		single_api['description'] = i.description
 		single_api['image'] = domain_north + str(i.image)
+		single_api['url'] = i.url
 		my_array.append(single_api)
 
 	my_response['details'] = my_array
@@ -96,12 +100,80 @@ def api_west1(request):
 		single_api['title'] = i.title
 		single_api['description'] = i.description
 		single_api['image'] = domain_north + str(i.image)
+		single_api['url'] = i.url
 		my_array.append(single_api)
 
 	my_response['details'] = my_array
 	my_response = json.dumps(my_response)
 	return HttpResponse(my_response)
 
+def api_a1(request):
+	domain_north = "http://52.36.208.194:8000/media/"
+	all_api = api_a.objects.all()
+	my_response = {}
+	my_array = []
+	for i in all_api:
+		single_api = {}
+		single_api['title'] = i.title
+		single_api['description'] = i.description
+		single_api['image'] = domain_north + str(i.image)
+		single_api['url'] = i.url
+		my_array.append(single_api)
+
+	my_response['details'] = my_array
+	my_response = json.dumps(my_response)
+	return HttpResponse(my_response)
+
+def api_b1(request):
+	domain_north = "http://52.36.208.194:8000/media/"
+	all_api = api_b.objects.all()
+	my_response = {}
+	my_array = []
+	for i in all_api:
+		single_api = {}
+		single_api['title'] = i.title
+		single_api['description'] = i.description
+		single_api['image'] = domain_north + str(i.image)
+		single_api['url'] = i.url
+		my_array.append(single_api)
+
+	my_response['details'] = my_array
+	my_response = json.dumps(my_response)
+	return HttpResponse(my_response)
+
+def api_c1(request):
+	domain_north = "http://52.36.208.194:8000/media/"
+	all_api = api_c.objects.all()
+	my_response = {}
+	my_array = []
+	for i in all_api:
+		single_api = {}
+		single_api['title'] = i.title
+		single_api['description'] = i.description
+		single_api['image'] = domain_north + str(i.image)
+		single_api['url'] = i.url
+		my_array.append(single_api)
+
+	my_response['details'] = my_array
+	my_response = json.dumps(my_response)
+	return HttpResponse(my_response)
+
+def api_d1(request):
+	domain_north = "http://52.36.208.194:8000/media/"
+	all_api = api_d.objects.all()
+	my_response = {}
+	my_array = []
+	for i in all_api:
+		single_api = {}
+		single_api['title'] = i.title
+		single_api['description'] = i.description
+		single_api['image'] = domain_north + str(i.image)
+		single_api['url'] = i.url
+		my_array.append(single_api)
+
+	my_response['details'] = my_array
+	my_response = json.dumps(my_response)
+	return HttpResponse(my_response)
 
 @csrf_exempt
 def register(request):
