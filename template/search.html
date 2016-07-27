@@ -1,0 +1,12 @@
+
+<form action="" method="get">
+	<input type="text" name="q">	
+	<button type="submit">search</button>
+</form>
+{% for i in myarray %}
+	{{ i.location }}
+	<br>
+	<img src="{{STATIC_URL}}{{ i.image }}" />
+	<br>
+	{{ i.url }}
+{% endfor %}

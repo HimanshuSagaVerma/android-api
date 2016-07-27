@@ -27,6 +27,29 @@ def android_api(request):
 	my_response = json.dumps(my_response)
 	return HttpResponse(my_response)
 
+def android_api1(request):
+	domain = "http://localhost:8000/media/"
+
+	l = request.GET.get('q', '')
+	all_api = api_model.objects.filter(
+		location__icontains=l
+	)
+	my_response = {}
+	my_array = []
+	for i in all_api:
+		single_api = {}
+		single_api['location'] = i.location
+		single_api['image'] = domain + str(i.image)
+		single_api['url'] = i.url
+		my_array.append(single_api)
+
+	my_response['details'] = my_array
+	context = {
+		'myarray': my_array
+	}
+	return render(request, 'search.html', context)
+
+
 def index1(request):
     file = "index1.html"
     context = {}
@@ -40,6 +63,7 @@ def home_page(request):
 	return render(request, file_name, context)
 
 def search(request):
+
 	all_api = search.objects.all()
 	my_response = {}
 	my_array = []

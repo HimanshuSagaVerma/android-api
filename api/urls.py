@@ -7,6 +7,7 @@ urlpatterns = [
 	url(r'^home/', views.index1),
 	url('^register-api/', views.register_api),
 	url(r'^android-api/', views.android_api),
+	url(r'^android-api1/', views.android_api1),
 	url(r'^api-north/', views.api_north1),
 	url(r'^api-south/', views.api_south1),
 	url(r'^api-east/', views.api_east1),
@@ -16,4 +17,5 @@ urlpatterns = [
 	url(r'^api-c/', views.api_c1),
 	url(r'^api-d/', views.api_d1),
 	url(r'^api-search/', views.search),
+	url(r'^xyz/(?P<para>\w+)/', views.search),
 ]
