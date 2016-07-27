@@ -26,6 +26,11 @@ def android_api(request):
 	my_response = json.dumps(my_response)
 	return HttpResponse(my_response)
 
+def index1(request):
+    file = "index1.html"
+    context = {}
+    return render(request, file, context)
+
 def home_page(request):
 	file_name = "home.html"
 	context = {}
@@ -124,20 +129,25 @@ def register_api(request):
 
 	user = Register.objects.filter(email=email, password=password)
 	my_response = {}
+	my_array = []
 	print 'user; ', user
 	if user:
 		user_detail = {
-			'user_found': True,
+			'user_found': "True",
 			'email': user[0].email,
 			'username': user[0].username,
+			'password': user[0].password,
 		}
 	else:
 		user_detail = {
-			'user_found': False,
+			'user_found': "False",
 			'email': '',
 			'username': '',
+			'password': '',
 		}
-	my_response['user_detail'] = user_detail
+	my_array.append(user_detail)
+	my_response['user_detail'] = my_array
+#	my_response['user_detail'] = user_detail
 
 	return HttpResponse(json.dumps(my_response))
 
