@@ -1,12 +1,19 @@
 from django.contrib import admin
 from api.models import api_model, api_north, api_south, api_east, api_west, Register
-from api.models import api_a, api_b, api_c, api_d
+from api.models import api_a, api_b, api_c, api_d, search
 # Register your models here.
+
+class searchAdmin(admin.ModelAdmin):
+	pass
+
+admin.site.register(search, searchAdmin)
+
 
 class RegisterAdmin(admin.ModelAdmin):
 	pass
 
 admin.site.register(Register, RegisterAdmin)
+
 
 class Api_Model(admin.ModelAdmin):
 	pass
