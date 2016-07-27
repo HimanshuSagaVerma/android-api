@@ -9,7 +9,7 @@ from api.models import api_a, api_b, api_c, api_d, search
 # Create your views here.
 
 def android_api(request):
-	domain = "http://52.36.208.194/media/"
+	domain = "http://iwedcast.com/media/"
 	l = request.GET.get('location', '')
 	all_api = api_model.objects.filter(
 		location__icontains=l
@@ -28,7 +28,7 @@ def android_api(request):
 	return HttpResponse(my_response)
 
 def android_api1(request):
-	domain = "http://52.36.208.194/media/"
+	domain = "http://iwedcast.com/media/"
 
 	l = request.GET.get('q', '')
 	all_api = api_model.objects.filter(
@@ -78,7 +78,7 @@ def search(request):
 	return HttpResponse(my_response)
 
 def api_north1(request):
-	domain_north = "http://52.36.208.194/media/"
+	domain_north = "http://iwedcast.com/media/"
 	all_api = api_north.objects.all()
 	my_response = {}
 	my_array = []
@@ -95,7 +95,7 @@ def api_north1(request):
 	return HttpResponse(my_response)
 
 def api_south1(request):
-	domain_north = "http://52.36.208.194/media/"
+	domain_north = "iwedcast.com/media/"
 	all_api = api_south.objects.all()
 	my_response = {}
 	my_array = []
@@ -112,7 +112,7 @@ def api_south1(request):
 	return HttpResponse(my_response)
 
 def api_east1(request):
-	domain_north = "http://52.36.208.194/media/"
+	domain_north = "http://iwedcast.com/media/"
 	all_api = api_east.objects.all()
 	my_response = {}
 	my_array = []
@@ -129,7 +129,7 @@ def api_east1(request):
 	return HttpResponse(my_response)
 
 def api_west1(request):
-	domain_west = "http://52.36.208.194/media/"
+	domain_west = "http://iwedcast.com/media/"
 	all_api = api_west.objects.all()
 	my_response = {}
 	my_array = []
@@ -146,7 +146,7 @@ def api_west1(request):
 	return HttpResponse(my_response)
 
 def api_a1(request):
-	domain_north = "http://52.36.208.194/media/"
+	domain_north = "http://iwedcast.com/media/"
 	all_api = api_a.objects.all()
 	my_response = {}
 	my_array = []
@@ -163,7 +163,7 @@ def api_a1(request):
 	return HttpResponse(my_response)
 
 def api_b1(request):
-	domain_north = "http://52.36.208.194/media/"
+	domain_north = "http://iwedcast.com/media/"
 	all_api = api_b.objects.all()
 	my_response = {}
 	my_array = []
@@ -180,7 +180,7 @@ def api_b1(request):
 	return HttpResponse(my_response)
 
 def api_c1(request):
-	domain_north = "http://52.36.208.194/media/"
+	domain_north = "http://iwedcast.com/media/"
 	all_api = api_c.objects.all()
 	my_response = {}
 	my_array = []
@@ -197,7 +197,7 @@ def api_c1(request):
 	return HttpResponse(my_response)
 
 def api_d1(request):
-	domain_north = "http://52.36.208.194/media/"
+	domain_north = "http://iwedcast.com/media/"
 	all_api = api_d.objects.all()
 	my_response = {}
 	my_array = []
