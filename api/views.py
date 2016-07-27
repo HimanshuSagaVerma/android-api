@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from api.models import api_model
 from api.models import api_north, api_south, api_east, api_west, Register
-from api.models import api_a, api_b, api_c, api_d
+from api.models import api_a, api_b, api_c, api_d, search
 # Create your views here.
 
 def android_api(request):
@@ -38,6 +38,20 @@ def home_page(request):
 	all_api = api_model.objects.all()
 	context['all_api'] = all_api
 	return render(request, file_name, context)
+
+def search(request):
+	all_api = search.objects.all()
+	my_response = {}
+	my_array = []
+	for i in all_api:
+		single_api = {}
+		single_api['location'] = i.location
+		single_api['url'] = i.url
+		my_array.append(single_api)
+
+	my_response['details'] = my_array
+	my_response = json.dumps(my_response)
+	return HttpResponse(my_response)
 
 def api_north1(request):
 	domain_north = "http://52.36.208.194:8000/media/"

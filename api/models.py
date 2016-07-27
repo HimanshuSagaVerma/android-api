@@ -60,6 +60,14 @@ class api_west(models.Model):
 		return str(self.title)
 
 
+class search(models.Model):
+	location = models.CharField(max_length = 200, null = True)
+	url = models.CharField(max_length = 2000, null = True)
+
+	def __str__(self):
+		return str(self.location)
+
+
 class api_a(models.Model):
 	title = models.CharField(max_length = 200, null = True)
 	image = models.ImageField(upload_to = 'a')
