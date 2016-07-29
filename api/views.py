@@ -62,8 +62,7 @@ def home_page(request):
 	context['all_api'] = all_api
 	return render(request, file_name, context)
 
-def search(request):
-
+def search1(request):
 	all_api = search.objects.all()
 	my_response = {}
 	my_array = []
