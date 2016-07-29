@@ -63,7 +63,11 @@ def home_page(request):
 	return render(request, file_name, context)
 
 def search1(request):
-	all_api = search.objects.all()
+	domain = "http://iwedcast.com/media/"
+	l = request.GET.get('location', '')
+	all_api = search.objects.filter(
+		location__icontains=l
+	)
 	my_response = {}
 	my_array = []
 	for i in all_api:
