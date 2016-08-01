@@ -99,6 +99,22 @@ def search1(request):
 	my_response = json.dumps(my_response)
 	return HttpResponse(my_response)
 
+def search1_volley(request):
+	domain = "http://iwedcast.com/media/"
+	l = request.GET.get('location', '')
+	all_api = search.objects.filter(
+		location__icontains=l
+	)
+	my_array = []
+	for i in all_api:
+		single_api = {}
+		single_api['location'] = i.location
+		single_api['url'] = i.url
+		my_array.append(single_api)
+
+	my_array = json.dumps(my_array)
+	return HttpResponse(my_array)
+
 def api_north1(request):
 	domain_north = "http://iwedcast.com/media/"
 	all_api = api_north.objects.all()
@@ -298,3 +314,125 @@ def register_api(request):
 	# my_response['details'] = my_array
 	# my_response = json.dumps(my_response)
 	# return HttpResponse(my_response)
+
+
+
+def api_north1_volley(request):
+	domain_north = "http://iwedcast.com/media/"
+	all_api = api_north.objects.all()
+	my_array = []
+	for i in all_api:
+		single_api = {}
+		single_api['title'] = i.title
+		single_api['description'] = i.description
+		single_api['image'] = domain_north + str(i.image)
+		single_api['url'] = i.url
+		my_array.append(single_api)
+
+	my_array = json.dumps(my_array)
+	return HttpResponse(my_array)
+
+def api_south1_volley(request):
+	domain_north = "iwedcast.com/media/"
+	all_api = api_south.objects.all()
+	my_array = []
+	for i in all_api:
+		single_api = {}
+		single_api['title'] = i.title
+		single_api['description'] = i.description
+		single_api['image'] = domain_north + str(i.image)
+		single_api['url'] = i.url
+		my_array.append(single_api)
+
+	my_array = json.dumps(my_array)
+	return HttpResponse(my_array)
+
+def api_east1_volley(request):
+	domain_north = "http://iwedcast.com/media/"
+	all_api = api_east.objects.all()
+	my_array = []
+	for i in all_api:
+		single_api = {}
+		single_api['title'] = i.title
+		single_api['description'] = i.description
+		single_api['image'] = domain_north + str(i.image)
+		single_api['url'] = i.url
+		my_array.append(single_api)
+
+	my_array = json.dumps(my_array)
+	return HttpResponse(my_array)
+
+def api_west1_volley(request):
+	domain_west = "http://iwedcast.com/media/"
+	all_api = api_west.objects.all()
+	my_array = []
+	for i in all_api:
+		single_api = {}
+		single_api['title'] = i.title
+		single_api['description'] = i.description
+		single_api['image'] = domain_north + str(i.image)
+		single_api['url'] = i.url
+		my_array.append(single_api)
+
+	my_array = json.dumps(my_array)
+	return HttpResponse(my_array)
+
+def api_a1_volley(request):
+	domain_north = "http://iwedcast.com/media/"
+	all_api = api_a.objects.all()
+	my_array = []
+	for i in all_api:
+		single_api = {}
+		single_api['title'] = i.title
+		single_api['description'] = i.description
+		single_api['image'] = domain_north + str(i.image)
+		single_api['url'] = i.url
+		my_array.append(single_api)
+
+	my_array = json.dumps(my_array)
+	return HttpResponse(my_array)
+
+def api_b1_volley(request):
+	domain_north = "http://iwedcast.com/media/"
+	all_api = api_b.objects.all()
+	my_array = []
+	for i in all_api:
+		single_api = {}
+		single_api['title'] = i.title
+		single_api['description'] = i.description
+		single_api['image'] = domain_north + str(i.image)
+		single_api['url'] = i.url
+		my_array.append(single_api)
+
+	my_array = json.dumps(my_array)
+	return HttpResponse(my_array)
+
+def api_c1_volley(request):
+	domain_north = "http://iwedcast.com/media/"
+	all_api = api_c.objects.all()
+	my_array = []
+	for i in all_api:
+		single_api = {}
+		single_api['title'] = i.title
+		single_api['description'] = i.description
+		single_api['image'] = domain_north + str(i.image)
+		single_api['url'] = i.url
+		my_array.append(single_api)
+
+	my_array = json.dumps(my_array)
+	return HttpResponse(my_array)
+
+def api_d1_volley(request):
+	domain_north = "http://iwedcast.com/media/"
+	all_api = api_d.objects.all()
+	my_array = []
+	for i in all_api:
+		single_api = {}
+		single_api['title'] = i.title
+		single_api['description'] = i.description
+		single_api['image'] = domain_north + str(i.image)
+		single_api['url'] = i.url
+		my_array.append(single_api)
+
+	my_array = json.dumps(my_array)
+	return HttpResponse(my_array)
