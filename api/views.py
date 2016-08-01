@@ -8,6 +8,25 @@ from api.models import api_north, api_south, api_east, api_west, Register
 from api.models import api_a, api_b, api_c, api_d, search
 # Create your views here.
 
+def android_api_volley(request):
+	domain = "http://iwedcast.com/media/"
+	l = request.GET.get('location', '')
+	all_api = api_model.objects.filter(
+		location__icontains=l
+	)
+	# my_response = {}
+	my_array = []
+	for i in all_api:
+		single_api = {}
+		single_api['location'] = i.location
+		single_api['image'] = domain + str(i.image)
+		single_api['url'] = i.url
+		my_array.append(single_api)
+
+	# my_response['details'] = my_array
+	my_array = json.dumps(my_array)
+	return HttpResponse(my_array)
+
 def android_api(request):
 	domain = "http://iwedcast.com/media/"
 	l = request.GET.get('location', '')
