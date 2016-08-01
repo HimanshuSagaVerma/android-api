@@ -7,6 +7,7 @@ urlpatterns = [
 	url(r'^home/', views.index1),
 	url('^register-api/', views.register_api),
 	url(r'^android-api/', views.android_api),
+	url(r'^android-api-volley/', views.android_api_volley),
 	url(r'^android-api1/', views.android_api1),
 	url(r'^api-north/', views.api_north1),
 	url(r'^api-south/', views.api_south1),
