@@ -4,9 +4,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^android/', include('api.urls')),
-    url(r'^android-wo/', include('polls_wourl.urls')),
+	url(r'^admin/', include(admin.site.urls)),
+	url(r'^', include('api.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
